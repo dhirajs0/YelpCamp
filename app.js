@@ -67,19 +67,7 @@ app.delete('/campgrounds/:id', catchAsync(async (req, res) => {
     res.redirect('/campgrounds');
 }));
 
-// app.get('/makecampground', async (req,res)=>{
-//     const camp = new Campground({title: 'Dhirajs Home', description: 'Its awesome'});
-//     await camp.save();
-//     res.send(camp);
-// })
 
-
-/*
-To Send Hello 
-app.get('/', (req, res) => {
-    res.send('Hello from YelpCamp');
-})
-*/
 app.all('*', (req, res, next) => {
     next(new ExpressError('Page Not Found', 404))
 })
