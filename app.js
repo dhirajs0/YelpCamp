@@ -36,9 +36,20 @@ app.use(express.urlencoded({ extended: true }));
 // to overide the post method to put or delete in form 
 app.use(methodOverride('_method'));
 
-// server side validation
+// server side validation of campground
 const validateCampground = (req, res, next) => {
     const { error } = campgroundSchema.validate(req.body);
+    if (error) {
+        const msg = error.details.map(el => el.message).join(',')
+        throw new ExpressError(msg, 400)
+    } else {
+        next();
+    }
+}
+
+// validation of review 
+const validateReview = (req, res, next) => {
+    const { error } = reviewSchema.validate(req.body);
     if (error) {
         const msg = error.details.map(el => el.message).join(',')
         throw new ExpressError(msg, 400)
