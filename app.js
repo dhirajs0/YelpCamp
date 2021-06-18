@@ -33,6 +33,7 @@ app.set('views', path.join(__dirname, 'views'));
 // middleware for parsing req body
 app.use(express.urlencoded({ extended: true }));
 
+// to overide the post method to put or delete in form 
 app.use(methodOverride('_method'));
 
 // server side validation
@@ -97,6 +98,17 @@ app.delete('/campgrounds/:id', catchAsync(async (req, res) => {
     await Campground.findByIdAndDelete(id);
     res.redirect('/campgrounds');
 }));
+
+// to post new reviews
+app.post('/campgrounds/:id/reviews', validateReview, catchAsync(async (req, res) => {
+    const campground = await Campground.findById(req.params.id);
+    const review = new Review(req.body.review);
+    campground.reviews.push(review);
+    await review.save();
+    await campground.save();
+    res.redirect(`/campgrounds/${campground._id}`);
+}))
+
 
 // for rest all routes: page not found error
 app.all('*', (req, res, next) => {
