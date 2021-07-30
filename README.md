@@ -9,6 +9,11 @@
 <kbd> ![comments](https://github.com/Sohan022/YelpCamp/blob/master/Demo/comment_On_Campgrounds.png)</kbd>
 
 [See more images](https://github.com/Sohan022/YelpCamp/blob/master/Demo) -->
+
+<kbd>![Sikkim](./demo/sikkim.png)</kbd>
+<kbd>![Sikkim](./demo/campground-1.png)</kbd>
+<kbd>![Sikkim](./demo/siliguri.png)</kbd>
+
 ```
 It is a website which shows beautiful campgrounds all over the world.
 
@@ -41,6 +46,6 @@ This Project has created using HTML, CSS, Bootstrap, JS, NodeJS, Express and Mon
 ```
 * open web browser *http://localhost:3000/*
 
-## LICENSE
 
-[MIT LICENSE](https://github.com/dhirajs0/YelpCamp/blob/master/LICENSE.md)
+<!-- 
+[MIT LICENSE](https://github.com/dhirajs0/YelpCamp/blob/master/LICENSE.md) -->
